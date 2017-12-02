@@ -51,10 +51,10 @@ public class PlayerController : MonoBehaviour {
             movement.Set(horizontal, vertical, 0f);
             movement = movement.normalized * speed * Time.deltaTime;
             rgbd.MovePosition(transform.position + movement);
-            animator.SetBool("walking", true);
+            animator.SetInteger("walking", 1);
             spriteRenderer.flipX = horizontal > 0;
         } else {
-            animator.SetBool("walking", false);
+            animator.SetInteger("walking", 0);
         }
     }
 

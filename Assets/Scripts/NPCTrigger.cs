@@ -27,7 +27,8 @@ public class NPCTrigger : MonoBehaviour {
 	}
 
 	public void ActivateDeadBubble(){
-		deadBubbleGameObject.SetActive (true);
+		if(deadBubbleGameObject != null)
+			deadBubbleGameObject.SetActive (true);
 	}
 
 	public void Autodestroy(){

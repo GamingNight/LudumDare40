@@ -14,6 +14,8 @@ public class DialogBubble : MonoBehaviour {
 	public PixelBubble vBubble = new PixelBubble();
 	public float positionX = 0;
 	public float positionY = 0;
+	public bool flipX;
+	public bool flipY;
 	private PixelBubble vActiveBubble = null;
 
     //show the right bubble on the current character
@@ -70,12 +72,16 @@ public class DialogBubble : MonoBehaviour {
 						//change the body color
 						vRenderer.color = vNewBodyColor;
 						vRenderer.sortingLayerName = "Other";
+						vRenderer.flipX = flipX;
+						vRenderer.flipY = flipY;
 					}
 					else if (vRenderer != null && child.name.Contains("Border"))
 					{
 						//change the border color
 						vRenderer.color = vNewBorderColor;
 						vRenderer.sortingLayerName = "Other";
+						vRenderer.flipX = flipX;
+						vRenderer.flipY = flipY;
 					} 
 					else if (vTextMesh != null && child.name.Contains("Message"))
 					{
@@ -83,6 +89,8 @@ public class DialogBubble : MonoBehaviour {
 						vTextMesh.color = vNewFontColor;
 						vTextMesh.text = vTrueMessage;
 					    child.GetComponent<MeshRenderer>().sortingLayerName = "BubbleText";
+						if (flipY)
+							vTextMesh.transform.position = new Vector3 (vTextMesh.transform.position.x, vTextMesh.transform.position.y - 0.2f, vTextMesh.transform.position.z);
 					}
 				}
 				

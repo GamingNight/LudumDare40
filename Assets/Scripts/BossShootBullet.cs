@@ -55,9 +55,9 @@ public class BossShootBullet : MonoBehaviour
             else if (patternNumber == 5)
             {
                 Vector3 PosPlayer = (ThePlayer.transform.position - transform.position).normalized;
-                PatternWave(5, 30,PosPlayer);
+                PatternWave(5, 50,PosPlayer);
                 crtPatternIndex++;
-                RealDeltaTimes = timeInterval * 0.3f;
+                RealDeltaTimes = timeInterval * 0.5f;
             }
             crtTime = 0;
         }
@@ -138,10 +138,8 @@ public class BossShootBullet : MonoBehaviour
         patternRoutineFinished = true;
         while (crtBulletIndex < bulletNumber)
         {
-            Debug.Log("cacacaac   " + crtBulletIndex);
             PatternSolo(360f/bulletNumber*crtBulletIndex);
             crtBulletIndex++;
-            Debug.Log("cacacaac   " + bulletNumber);
             yield return new WaitForSeconds(timeInterval / bulletNumber);
         }
     }

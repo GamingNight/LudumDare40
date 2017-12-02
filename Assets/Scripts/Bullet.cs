@@ -21,13 +21,14 @@ public class Bullet : MonoBehaviour {
 
         bool playerHitsBoss = (type == Type.PLAYER && other.gameObject.tag == "Boss");
         bool bossHitsPlayer = (type == Type.BOSS && other.gameObject.tag == "Player");
+		bool hitBackground = (other.gameObject.tag == "Wall");
         //bool otherIsBullet = other.gameObject.tag == "Bullet";
         //bool bulletHitsBullet = false;
         //if (otherIsBullet)
         //{
         //    bulletHitsBullet = other.gameObject.GetComponent<Bullet>().type != type;
         //}
-        if (playerHitsBoss || bossHitsPlayer) { //|| bulletHitsBullet) { 
+		if (playerHitsBoss || bossHitsPlayer || hitBackground) { //|| bulletHitsBullet) { 
             Destroy(gameObject);
             Instantiate<GameObject>(ExplosionPrefab, transform.position, Quaternion.identity);
             if (other.gameObject.tag == "Player") {

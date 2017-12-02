@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour {
             Destroy(gameObject);
             Instantiate<GameObject>(ExplosionPrefab, transform.position, Quaternion.identity);
             if (other.gameObject.tag == "Player") {
-                other.gameObject.GetComponent<PlayerStatus>().TakeDamages(50);
+                other.gameObject.GetComponent<PlayerStatus>().TakeDamages(transform.parent.GetComponent<BossStatus>().GetPower());
             } else if (other.gameObject.tag == "Boss") {
                 other.gameObject.GetComponent<BossStatus>().TakeDamages(transform.parent.GetComponent<PlayerStatus>().GetPower());
             }

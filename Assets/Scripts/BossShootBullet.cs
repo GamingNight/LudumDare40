@@ -65,30 +65,38 @@ public class BossShootBullet : MonoBehaviour
     void PatternPlus()
     {
         GameObject bulletInstanceUp = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+        bulletInstanceUp.transform.parent = transform;
         bulletInstanceUp.GetComponent<Bullet>().direction = new Vector3(0, 1, 0);
         bulletInstanceUp.GetComponent<Bullet>().type = Bullet.Type.BOSS;
         GameObject bulletInstanceDown = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+        bulletInstanceDown.transform.parent = transform;
         bulletInstanceDown.GetComponent<Bullet>().direction = new Vector3(0, -1, 0);
         bulletInstanceDown.GetComponent<Bullet>().type = Bullet.Type.BOSS;
         GameObject bulletInstanceLeft = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+        bulletInstanceLeft.transform.parent = transform;
         bulletInstanceLeft.GetComponent<Bullet>().direction = new Vector3(-1, 0, 0);
         bulletInstanceLeft.GetComponent<Bullet>().type = Bullet.Type.BOSS;
         GameObject bulletInstanceRight = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+        bulletInstanceRight.transform.parent = transform;
         bulletInstanceRight.GetComponent<Bullet>().direction = new Vector3(1, 0, 0);
         bulletInstanceRight.GetComponent<Bullet>().type = Bullet.Type.BOSS;
     }
     void PatternCross()
     {
         GameObject bulletInstanceUp = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+        bulletInstanceUp.transform.parent = transform;
         bulletInstanceUp.GetComponent<Bullet>().direction = new Vector3(1, 1, 0);
         bulletInstanceUp.GetComponent<Bullet>().type = Bullet.Type.BOSS;
         GameObject bulletInstanceDown = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+        bulletInstanceDown.transform.parent = transform;
         bulletInstanceDown.GetComponent<Bullet>().direction = new Vector3(1, -1, 0);
         bulletInstanceDown.GetComponent<Bullet>().type = Bullet.Type.BOSS;
         GameObject bulletInstanceLeft = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+        bulletInstanceLeft.transform.parent = transform;
         bulletInstanceLeft.GetComponent<Bullet>().direction = new Vector3(-1, 1, 0);
         bulletInstanceLeft.GetComponent<Bullet>().type = Bullet.Type.BOSS;
         GameObject bulletInstanceRight = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+        bulletInstanceRight.transform.parent = transform;
         bulletInstanceRight.GetComponent<Bullet>().direction = new Vector3(-1, -1, 0);
         bulletInstanceRight.GetComponent<Bullet>().type = Bullet.Type.BOSS;
     }
@@ -96,27 +104,30 @@ public class BossShootBullet : MonoBehaviour
     {
         for (int i = 0; i < NumBullet; i++)
         {
-            GameObject bulletInstanceUp = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
-            bulletInstanceUp.GetComponent<Bullet>().direction = new Vector3(Mathf.Cos(2 * Mathf.PI / NumBullet * i * angle/360), Mathf.Sin(2 * Mathf.PI / NumBullet * i* angle/360), 0);
-            bulletInstanceUp.GetComponent<Bullet>().type = Bullet.Type.BOSS;
+            GameObject bulletInstance = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+            bulletInstance.transform.parent = transform;
+            bulletInstance.GetComponent<Bullet>().direction = new Vector3(Mathf.Cos(2 * Mathf.PI / NumBullet * i * angle/360), Mathf.Sin(2 * Mathf.PI / NumBullet * i* angle/360), 0);
+            bulletInstance.GetComponent<Bullet>().type = Bullet.Type.BOSS;
         }
     }
     void PatternWave(int NumBullet, float DeltaAngle, Vector3 Dir)
     {
         for (int i = 0; i < NumBullet; i++)
         {
-            GameObject bulletInstanceUp = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject bulletInstance = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+            bulletInstance.transform.parent = transform;
             Vector3 Direction = (Quaternion.Euler(0, 0, DeltaAngle/NumBullet*(i-1f*NumBullet/2f)) * Dir).normalized;
-            bulletInstanceUp.GetComponent<Bullet>().direction = Direction;
+            bulletInstance.GetComponent<Bullet>().direction = Direction;
             //new Vector3(Mathf.Cos(2 * Mathf.PI / NumBullet * i * DeltaAngle / 360+2 *Mathf.PI/360*angleInit), Mathf.Sin(2 * Mathf.PI / NumBullet * i * DeltaAngle / 360 + 2 * Mathf.PI / 360 * angleInit), 0);
-            bulletInstanceUp.GetComponent<Bullet>().type = Bullet.Type.BOSS;
+            bulletInstance.GetComponent<Bullet>().type = Bullet.Type.BOSS;
         }
     }
     void PatternSolo(float Angle)
     {
-        GameObject bulletInstanceUp = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
-        bulletInstanceUp.GetComponent<Bullet>().direction = new Vector3(Mathf.Cos(2 * Mathf.PI / 360 * Angle), Mathf.Sin(2 * Mathf.PI / 360 * Angle), 0);
-        bulletInstanceUp.GetComponent<Bullet>().type = Bullet.Type.BOSS;
+        GameObject bulletInstance = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+        bulletInstance.transform.parent = transform;
+        bulletInstance.GetComponent<Bullet>().direction = new Vector3(Mathf.Cos(2 * Mathf.PI / 360 * Angle), Mathf.Sin(2 * Mathf.PI / 360 * Angle), 0);
+        bulletInstance.GetComponent<Bullet>().type = Bullet.Type.BOSS;
     }
 
     IEnumerator PatternSpirale(int bulletNumber)

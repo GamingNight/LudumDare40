@@ -24,8 +24,12 @@ public class BossStatus : MonoBehaviour {
         }
     }
 
-    public void TakePower(int powerPoint) {
+    public void AddPower(int value) {
 
-        power += powerPoint;
+        power += value;
+    }
+
+    public int GetPower() {
+        return power;
     }
 }

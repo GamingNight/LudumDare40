@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-    public enum Type{
+    public enum Type {
         BOSS, PLAYER
     }
 
@@ -27,10 +27,14 @@ public class Bullet : MonoBehaviour {
         //{
         //    bulletHitsBullet = other.gameObject.GetComponent<Bullet>().type != type;
         //}
-        if (playerHitsBoss || bossHitsPlayer){ //|| bulletHitsBullet) { 
-            Debug.Log ("touch " + other.gameObject.name);
+        if (playerHitsBoss || bossHitsPlayer) { //|| bulletHitsBullet) { 
             Destroy(gameObject);
-            GameObject ExplosionInstance = Instantiate<GameObject> (ExplosionPrefab, transform.position, Quaternion.identity);
+            Instantiate<GameObject>(ExplosionPrefab, transform.position, Quaternion.identity);
+            if (other.gameObject.tag == "Player") {
+                other.gameObject.GetComponent<PlayerStatus>().TakeDamages(50);
+            } else if (other.gameObject.tag == "Boss") {
+                other.gameObject.GetComponent<BossStatus>().TakeDamages(transform.parent.GetComponent<PlayerStatus>().GetPower());
+            }
         }
     }
 }

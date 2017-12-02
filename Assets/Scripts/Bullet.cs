@@ -14,5 +14,11 @@ public class Bullet : MonoBehaviour {
 	void Update () {
 	
 		transform.Translate (direction * initSpeed * Time.deltaTime);
+	
+	}
+		
+	void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log ("touch " + other.gameObject.name);
+		//Destroy(gameObject);
 	}
 }

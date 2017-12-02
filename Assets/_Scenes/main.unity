@@ -265,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1786880820405640, guid: 02913ffe8e677b447b73266e5306ff77,
     type: 2}
+  ThePlayer: {fileID: 1886976887}
   timeInterval: 2
 --- !u!58 &739404028
 CircleCollider2D:

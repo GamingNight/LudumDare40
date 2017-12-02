@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour {
     public float speed;
 
     private Rigidbody2D rgbd;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     private Vector3 movement;
 
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour {
     void Start() {
 
         rgbd = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         isDashing = false;
         dashDistance = 0;
         maxDashDistance = 0.5f;
@@ -47,6 +51,10 @@ public class PlayerController : MonoBehaviour {
             movement.Set(horizontal, vertical, 0f);
             movement = movement.normalized * speed * Time.deltaTime;
             rgbd.MovePosition(transform.position + movement);
+            animator.SetBool("walking", true);
+            spriteRenderer.flipX = horizontal > 0;
+        } else {
+            animator.SetBool("walking", false);
         }
     }
 
@@ -62,6 +70,7 @@ public class PlayerController : MonoBehaviour {
             prevPosition = transform.position;
             relativeMaxDashDistance = Mathf.Min(maxDashDistance, mouseToPlayerDirection.magnitude);
             lockMovement = true;
+            spriteRenderer.flipX = mouseToPlayerDirection.x > 0;
         }
 
         if (isDashing) {

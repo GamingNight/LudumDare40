@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
 
     private Vector3 movement;
+    private int lastWalkingAnimationState;
 
     private bool isDashing;
     private float dashDistance;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour {
         isDashing = false;
         dashDistance = 0;
         lockMovement = false;
+        lastWalkingAnimationState = 1;
     }
 
     void Update() {
@@ -51,7 +53,15 @@ public class PlayerController : MonoBehaviour {
             movement.Set(horizontal, vertical, 0f);
             movement = movement.normalized * speed * Time.deltaTime;
             rgbd.MovePosition(transform.position + movement);
-            animator.SetInteger("walking", 1);
+            if (vertical < 0) {
+                animator.SetInteger("walking", 1);
+                lastWalkingAnimationState = 1;
+            } else if (vertical > 0) {
+                animator.SetInteger("walking", -1);
+                lastWalkingAnimationState = -1;
+            } else {
+                animator.SetInteger("walking", lastWalkingAnimationState);
+            }
             spriteRenderer.flipX = horizontal > 0;
         } else {
             animator.SetInteger("walking", 0);

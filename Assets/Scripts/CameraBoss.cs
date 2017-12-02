@@ -30,6 +30,8 @@ public class CameraBoss : MonoBehaviour {
 				switchingMode = false;
 			}
 		} else {
+			TheBOSS.GetComponent<BossShootBullet> ().enabled = true;
+			ThePlayer.GetComponent<PlayerShootBullet> ().enabled = true;
 			Vector3 newPosition = (TheBOSS.transform.position + ThePlayer.transform.position) / 2;
 			transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
 		}

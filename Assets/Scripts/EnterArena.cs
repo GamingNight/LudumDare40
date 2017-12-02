@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchCamera : MonoBehaviour {
+public class EnterArena : MonoBehaviour {
 
 	public GameObject myCamera;
 	public GameObject invisibleWall;

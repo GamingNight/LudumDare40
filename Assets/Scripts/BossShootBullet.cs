@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossShotBullet : MonoBehaviour {
+public class BossShootBullet : MonoBehaviour {
 
 	public GameObject bulletPrefab;
 	public float timeInterval;

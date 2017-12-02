@@ -13,7 +13,7 @@ public class PlayerStatus : MonoBehaviour {
     private void Start() {
 
         health = maxHealth;
-        power = 100;
+        power = 10;
     }
 
     public void TakeDamages(int damages) {
@@ -25,9 +25,10 @@ public class PlayerStatus : MonoBehaviour {
         }
     }
 
-    public void AddPower(int value) {
+    public void PowerUp(int value) {
 
         power = Mathf.Min(value + power, maxPower);
+		Debug.Log ("player has been powered up of " + value + " points! Total points = " + power);
     }
 
     public int GetPower() {

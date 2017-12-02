@@ -16,12 +16,16 @@ public class BossShootBullet : MonoBehaviour {
 			crtTime = 0;
 			GameObject bulletInstanceUp = Instantiate<GameObject> (bulletPrefab, transform.position, Quaternion.identity);
 			bulletInstanceUp.GetComponent<Bullet> ().direction = new Vector3 (0, 1, 0);
-			GameObject bulletInstanceDown = Instantiate<GameObject> (bulletPrefab, transform.position, Quaternion.identity);
+            bulletInstanceUp.GetComponent<Bullet>().type = Bullet.Type.BOSS;
+            GameObject bulletInstanceDown = Instantiate<GameObject> (bulletPrefab, transform.position, Quaternion.identity);
 			bulletInstanceDown.GetComponent<Bullet> ().direction = new Vector3 (0, -1, 0);
-			GameObject bulletInstanceLeft = Instantiate<GameObject> (bulletPrefab, transform.position, Quaternion.identity);
+            bulletInstanceDown.GetComponent<Bullet>().type = Bullet.Type.BOSS;
+            GameObject bulletInstanceLeft = Instantiate<GameObject> (bulletPrefab, transform.position, Quaternion.identity);
 			bulletInstanceLeft.GetComponent<Bullet> ().direction = new Vector3 (-1, 0, 0);
-			GameObject bulletInstanceRight = Instantiate<GameObject> (bulletPrefab, transform.position, Quaternion.identity);
+            bulletInstanceLeft.GetComponent<Bullet>().type = Bullet.Type.BOSS;
+            GameObject bulletInstanceRight = Instantiate<GameObject> (bulletPrefab, transform.position, Quaternion.identity);
 			bulletInstanceRight.GetComponent<Bullet> ().direction = new Vector3 (1, 0, 0);
+            bulletInstanceRight.GetComponent<Bullet>().type = Bullet.Type.BOSS;
 		}
 	}
 }

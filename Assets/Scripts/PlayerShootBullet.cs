@@ -13,6 +13,7 @@ public class PlayerShootBullet : MonoBehaviour {
             Vector3 bulletDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             bulletDirection.z = 0f;
             bulletInstance.GetComponent<Bullet>().direction = bulletDirection.normalized;
+            bulletInstance.GetComponent<Bullet>().type = Bullet.Type.PLAYER;
         }
     }
 }

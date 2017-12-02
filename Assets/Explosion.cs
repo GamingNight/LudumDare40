@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+    public float Damp;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        GetComponent<BoxCollider2D>().size = -Damp * GetComponent<BoxCollider2D>().size * Time.deltaTime;
+
+    }
 
 	void OnTriggerEnter2D(Collider2D other) {
 		Debug.Log ("touch explosion " + other.gameObject.name);
-		Destroy(gameObject);
-	}
+        //GetComponent<BoxCollider2D>().isTrigger = false;
+    }
+
+    public void Autodestroy()
+    {
+        //Destroy(gameObject);
+    }
 }

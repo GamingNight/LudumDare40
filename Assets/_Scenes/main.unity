@@ -649,6 +649,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  DashSpeed: 2
+  maxDashDistance: 1
 --- !u!50 &1886976892
 Rigidbody2D:
   serializedVersion: 4

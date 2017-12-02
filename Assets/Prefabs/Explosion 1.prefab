@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737bafc134ab51248a844c01799b2887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damp: 0.01
 --- !u!212 &212161599423887936
 SpriteRenderer:
   m_ObjectHideFlags: 1

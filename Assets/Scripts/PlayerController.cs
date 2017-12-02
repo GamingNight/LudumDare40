@@ -81,6 +81,14 @@ public class PlayerController : MonoBehaviour {
             relativeMaxDashDistance = Mathf.Min(maxDashDistance, mouseToPlayerDirection.magnitude);
             lockMovement = true;
             spriteRenderer.flipX = mouseToPlayerDirection.x > 0;
+
+			//Dash animation
+			if (mouseToPlayerDirection.y > 0) {
+				animator.SetTrigger ("dashRightTop");
+			} else if (mouseToPlayerDirection.y < 0) {
+				animator.SetTrigger ("dashLeftBottom");
+			}
+			spriteRenderer.flipX = mouseToPlayerDirection.x > 0;
         }
 
         if (isDashing) {

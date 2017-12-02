@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
         isDashing = false;
         dashDistance = 0;
-        maxDashDistance = 0.5f;
+        maxDashDistance = 2f;
         lockMovement = false;
         lastWalkingAnimationState = 1;
     }
@@ -70,11 +70,11 @@ public class PlayerController : MonoBehaviour {
 
     private void Dash() {
 
-        bool dash = Input.GetKeyDown(KeyCode.LeftShift);
+        bool dash = Input.GetMouseButtonDown(1);
         if (dash) {
             Vector3 mouseToPlayerDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             mouseToPlayerDirection.z = 0;
-            rgbd.velocity = new Vector2(mouseToPlayerDirection.x, mouseToPlayerDirection.y).normalized * 2;
+            rgbd.velocity = new Vector2(mouseToPlayerDirection.x, mouseToPlayerDirection.y).normalized * 5;
             isDashing = true;
             dashDistance = 0;
             prevPosition = transform.position;

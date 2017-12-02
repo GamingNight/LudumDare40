@@ -11,17 +11,15 @@ public class Explosion : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetComponent<BoxCollider2D>().size = -Damp * GetComponent<BoxCollider2D>().size * Time.deltaTime;
-
     }
 
-	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log ("touch explosion " + other.gameObject.name);
-        //GetComponent<BoxCollider2D>().isTrigger = false;
-    }
+	//void OnTriggerEnter2D(Collider2D other) {
+	//	Debug.Log ("touch explosion " + other.gameObject.name);
+    //    GetComponent<BoxCollider2D>().isTrigger = false;
+    //}
 
     public void Autodestroy()
     {
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

@@ -21,13 +21,13 @@ public class Bullet : MonoBehaviour {
 
         bool playerHitsBoss = (type == Type.PLAYER && other.gameObject.tag == "Boss");
         bool bossHitsPlayer = (type == Type.BOSS && other.gameObject.tag == "Player");
-        bool otherIsBullet = other.gameObject.tag == "Bullet";
-        bool bulletHitsBullet = false;
-        if (otherIsBullet)
-        {
-            bulletHitsBullet = other.gameObject.GetComponent<Bullet>().type != type;
-        }
-        if (playerHitsBoss || bossHitsPlayer || bulletHitsBullet) { 
+        //bool otherIsBullet = other.gameObject.tag == "Bullet";
+        //bool bulletHitsBullet = false;
+        //if (otherIsBullet)
+        //{
+        //    bulletHitsBullet = other.gameObject.GetComponent<Bullet>().type != type;
+        //}
+        if (playerHitsBoss || bossHitsPlayer){ //|| bulletHitsBullet) { 
             Debug.Log ("touch " + other.gameObject.name);
             Destroy(gameObject);
             GameObject ExplosionInstance = Instantiate<GameObject> (ExplosionPrefab, transform.position, Quaternion.identity);

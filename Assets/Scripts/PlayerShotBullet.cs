@@ -14,6 +14,9 @@ public class PlayerShotBullet : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown (0)) {
 			GameObject bulletInstance = Instantiate<GameObject> (bulletPrefab, transform.position, Quaternion.identity);
+            Vector3 bulletDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+            Debug.Log(bulletDirection + ", " + bulletDirection.sqrMagnitude);
+            bulletInstance.GetComponent<Bullet>().direction = bulletDirection;
 		}
 	}
 }

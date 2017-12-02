@@ -14,6 +14,8 @@ public class CameraMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = (TheBOSS.transform.position - ThePlayer.transform.position) / 2;
+        float Zvalue = transform.position.z;
+        transform.position = (TheBOSS.transform.position + ThePlayer.transform.position) / 2;
+        transform.Translate(0, 0, Zvalue);
 	}
 }

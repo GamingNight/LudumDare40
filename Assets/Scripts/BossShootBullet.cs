@@ -21,7 +21,7 @@ public class BossShootBullet : MonoBehaviour
     {
         crtPatternIndex = 0;
         patternRoutineFinished = false;
-        RealDeltaTimes = timeInterval;
+        RealDeltaTimes = timeInterval*0.1f;
     }
 
     void Update()
@@ -29,6 +29,7 @@ public class BossShootBullet : MonoBehaviour
         crtTime += Time.deltaTime;
         if (crtTime >= RealDeltaTimes)
         {
+            RealDeltaTimes = timeInterval;
             if (crtPatternIndex >= patternCombination.Length-1) { crtPatternIndex = 0; }
             patternNumber = patternCombination[crtPatternIndex];
             if (patternNumber == 0) { }

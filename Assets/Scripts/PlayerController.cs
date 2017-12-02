@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float speed;
+    public float DashSpeed;
+    public float maxDashDistance;
 
     private Rigidbody2D rgbd;
     private Animator animator;
@@ -12,7 +14,6 @@ public class PlayerController : MonoBehaviour {
 
     private Vector3 movement;
 
-    private float maxDashDistance;
     private bool isDashing;
     private float dashDistance;
     private Vector3 prevPosition;
@@ -26,7 +27,6 @@ public class PlayerController : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
         isDashing = false;
         dashDistance = 0;
-        maxDashDistance = 2f;
         lockMovement = false;
     }
 
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour {
         if (dash) {
             Vector3 mouseToPlayerDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             mouseToPlayerDirection.z = 0;
-            rgbd.velocity = new Vector2(mouseToPlayerDirection.x, mouseToPlayerDirection.y).normalized * 5;
+            rgbd.velocity = new Vector2(mouseToPlayerDirection.x, mouseToPlayerDirection.y).normalized * DashSpeed;
             isDashing = true;
             dashDistance = 0;
             prevPosition = transform.position;

@@ -29,7 +29,12 @@ public class Bullet : MonoBehaviour {
         //}
         if (playerHitsBoss || bossHitsPlayer) { //|| bulletHitsBullet) { 
             Destroy(gameObject);
-            GameObject ExplosionInstance = Instantiate<GameObject>(ExplosionPrefab, transform.position, Quaternion.identity);
+            Instantiate<GameObject>(ExplosionPrefab, transform.position, Quaternion.identity);
+            if (other.gameObject.tag == "Player") {
+                other.gameObject.GetComponent<PlayerStatus>().TakeDamages(50);
+            } else if (other.gameObject.tag == "Boss") {
+                other.gameObject.GetComponent<BossStatus>().TakeDamages(transform.parent.GetComponent<PlayerStatus>().GetPower());
+            }
         }
     }
 }

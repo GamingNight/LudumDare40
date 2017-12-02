@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatus : MonoBehaviour {
+public class BossStatus : MonoBehaviour {
 
     public int maxHealth;
-    public int maxPower;
 
     private int health;
     private int power;
@@ -13,7 +12,7 @@ public class PlayerStatus : MonoBehaviour {
     private void Start() {
 
         health = maxHealth;
-        power = 100;
+        power = 50;
     }
 
     public void TakeDamages(int damages) {
@@ -21,17 +20,12 @@ public class PlayerStatus : MonoBehaviour {
         health = Mathf.Max(health - damages, 0);
         Debug.Log("Player takes " + damages + " damages! Remaining life = " + health);
         if (health <= 0) {
-            GameManager.GetInstance().GameOver();
+            GameManager.GetInstance().Winner();
         }
     }
 
-    public void AddPower(int value) {
+    public void TakePower(int powerPoint) {
 
-        power = Mathf.Min(value + power, maxPower);
-    }
-
-    public int GetPower() {
-
-        return power;
+        power += powerPoint;
     }
 }

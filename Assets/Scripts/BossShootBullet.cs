@@ -10,7 +10,8 @@ public class BossShootBullet : MonoBehaviour
     public float timeInterval;
 
     private float crtTime;
-    private int[] patternCombination = {5,5,5,5};
+    //private int[] patternCombination = {1,2,1,2,1,2,5,5,5,5,5,5,3,1,2,1,2,1,2,4,4,5,5,4,5,4,5,3,3,3};
+    private int[] patternCombination = {3,2,1,2,1,2,5,5,5,5,5,5,3,1,2,1,2,1,2,4,4,5,5,4,5,4,5,1,2,1,3,3,3};
     private int crtPatternIndex;
     private float RealDeltaTimes;
     private bool patternRoutineFinished;
@@ -28,7 +29,7 @@ public class BossShootBullet : MonoBehaviour
         crtTime += Time.deltaTime;
         if (crtTime >= RealDeltaTimes)
         {
-            if (patternNumber >= patternCombination.Length-1) { crtPatternIndex = 0; }
+            if (crtPatternIndex >= patternCombination.Length-1) { crtPatternIndex = 0; }
             patternNumber = patternCombination[crtPatternIndex];
             if (patternNumber == 0) { }
             if (patternNumber == 1)

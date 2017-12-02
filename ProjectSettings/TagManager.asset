@@ -46,8 +46,14 @@ TagManager:
   - name: Background
     uniqueID: 2295564149
     locked: 0
+  - name: Back
+    uniqueID: 1042116001
+    locked: 0
   - name: Other
     uniqueID: 1576810681
+    locked: 0
+  - name: Front
+    uniqueID: 2212755353
     locked: 0
   - name: BubbleText
     uniqueID: 4282352575

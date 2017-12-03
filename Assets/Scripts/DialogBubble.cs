@@ -23,10 +23,6 @@ public class DialogBubble : MonoBehaviour {
 		//make sure the bubble isn't already opened
 			if (vCurrentBubble == null)
 			{
-				// Do not display empty bubble
-				if (vBubble.vMessage == "")
-					return;
-
 				//make the character in talking status
 				IsTalking = true;
 				

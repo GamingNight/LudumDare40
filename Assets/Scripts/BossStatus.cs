@@ -6,15 +6,44 @@ public class BossStatus : MonoBehaviour {
 
     public int maxHealth;
 
+	// 0 init = start shoot
+	// 1 display message
+	// 2 shoot again
+	private int phase = 0;
+
     private int health;
     private int power;
 
     private void Start() {
-
         health = maxHealth;
         power = 50;
     }
 
+	void Update() {
+		PhaseUpdate ();
+	}
+
+	public void PhaseUpdate() {
+		if (phase == 0 && health < maxHealth / 2) {
+			// Pass to phase 1
+			incrementPhase ();
+			// Pass to phase 2
+			StartCoroutine(waitAndIncrementPhase(3));
+		}
+	}
+
+	public void incrementPhase() {
+
+		Debug.Log("Boss change phase "  + phase + " to " + (phase+1));
+		phase = phase + 1;
+	}
+
+	IEnumerator waitAndIncrementPhase(float timeScale) {
+		yield return new WaitForSeconds(timeScale);
+		incrementPhase ();
+			
+	}
+		
     public void TakeDamages(int damages) {
 
         health = Mathf.Max(health - damages, 0);

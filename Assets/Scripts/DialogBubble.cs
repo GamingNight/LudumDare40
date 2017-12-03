@@ -101,20 +101,43 @@ public class DialogBubble : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) 
 	{
-		if  (other.gameObject.tag == "Player")
-		{
-			ShowBubble();
-		}
+		if  (tag == "Boss")
+			return;
+
+        if (other.gameObject.tag != "Player")
+            return;
+
+        ShowBubble();
 	}
 
 	void OnTriggerExit2D(Collider2D other) 
 	{
-		
-		if  (other.gameObject.tag == "Player")
-		{
-			if (vCurrentBubble != null) {
+		if  (tag == "Boss")
+			return;
+	
+        if  (other.gameObject.tag != "Player")
+            return;
+
+        if (vCurrentBubble != null) {
 				vCurrentBubble.GetComponent<Appear> ().Disable ();
 			}
-		}
 	}
+
+    void Update() {
+        if (tag != "Boss")
+            return;
+		if (GetComponent<BossStatus> ().phase == 1) {
+			if (vCurrentBubble != null)
+				return;
+
+			StartCoroutine (bossPhase1 ());
+		}
+    }
+		
+	IEnumerator bossPhase1() {
+		ShowBubble();
+		yield return new WaitForSeconds(5);
+		vCurrentBubble.GetComponent<Appear> ().Disable ();
+		}
+
 }

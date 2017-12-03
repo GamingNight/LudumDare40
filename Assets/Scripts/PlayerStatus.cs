@@ -9,11 +9,13 @@ public class PlayerStatus : MonoBehaviour {
 
     private int health;
     private int power;
+    private Animator animator;
 
     private void Start() {
 
         health = maxHealth;
         power = 10;
+        animator = GetComponent<Animator>();
     }
 
     public void TakeDamages(int damages) {
@@ -21,7 +23,7 @@ public class PlayerStatus : MonoBehaviour {
         health = Mathf.Max(health - damages, 0);
         Debug.Log("Player takes " + damages + " damages! Remaining life = " + health);
         if (health <= 0) {
-            GameManager.GetInstance().GameOver();
+            Die();
         }
     }
 
@@ -34,5 +36,21 @@ public class PlayerStatus : MonoBehaviour {
     public int GetPower() {
 
         return power;
+    }
+
+    private void Die() {
+
+        GetComponent<PlayerController>().enabled = false;
+        GetComponent<PlayerShootBullet>().enabled = false;
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        foreach (Collider2D c in colliders) {
+            c.enabled = false;
+        }
+        animator.SetTrigger("death");
+    }
+
+    public void GameOverTrigger() {
+
+        GameManager.GetInstance().GameOver();
     }
 }

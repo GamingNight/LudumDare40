@@ -56,6 +56,9 @@ TagManager:
   - name: Front
     uniqueID: 2212755353
     locked: 0
+  - name: Bubble
+    uniqueID: 1289900845
+    locked: 0
   - name: BubbleText
     uniqueID: 4282352575
     locked: 0

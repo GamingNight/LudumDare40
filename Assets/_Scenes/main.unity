@@ -418,6 +418,12 @@ Prefab:
       propertyPath: m_Name
       value: NPCPapa
       objectReference: {fileID: 0}
+    - target: {fileID: 212020415416122962, guid: 8cc612abc94c98f489dda7015fcdd5da,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3130bb87bc62cf647975f4ad50480070,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
   m_IsPrefabParent: 0
@@ -1047,7 +1053,7 @@ GameObject:
   - component: {fileID: 617986628}
   - component: {fileID: 617986627}
   m_Layer: 0
-  m_Name: NPC (1)
+  m_Name: NPC papi4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1183,9 +1189,9 @@ SpriteRenderer:
   m_SortingLayerID: 1576810681
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d016fb0ef0d094e4ab94dd04181ed73f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 86225ba4602514048afb4ba855509f8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.2, y: 0.2}
@@ -1205,7 +1211,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &739404024
 GameObject:
@@ -1542,7 +1548,7 @@ GameObject:
   - component: {fileID: 838677125}
   - component: {fileID: 838677124}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: NPC papi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1558,7 +1564,7 @@ Animator:
   m_GameObject: {fileID: 838677123}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: c1db9d8dc23d2a54392c7ecbe11edec5, type: 2}
+  m_Controller: {fileID: 22100000, guid: bfc50c46e7371904289a9e7eaa1e79de, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1678,7 +1684,7 @@ SpriteRenderer:
   m_SortingLayerID: 1576810681
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d016fb0ef0d094e4ab94dd04181ed73f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5bd241a2ae36ded4eaa76daeaee557ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1739,17 +1745,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4718931834810888, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1851773333083202, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
       propertyPath: m_Name
-      value: NPC (2)
+      value: NPC papi2
       objectReference: {fileID: 0}
     - target: {fileID: 212020415416122962, guid: 8cc612abc94c98f489dda7015fcdd5da,
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d016fb0ef0d094e4ab94dd04181ed73f,
+      objectReference: {fileID: 21300000, guid: 86225ba4602514048afb4ba855509f8b,
         type: 3}
     - target: {fileID: 114412993584814266, guid: 8cc612abc94c98f489dda7015fcdd5da,
         type: 2}
@@ -1978,7 +1984,7 @@ GameObject:
   - component: {fileID: 1084669309}
   - component: {fileID: 1084669308}
   m_Layer: 0
-  m_Name: NPC (3)
+  m_Name: NPC papi3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1994,7 +2000,7 @@ Animator:
   m_GameObject: {fileID: 1084669307}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: c1db9d8dc23d2a54392c7ecbe11edec5, type: 2}
+  m_Controller: {fileID: 22100000, guid: 7d6e7adc34e6cc74caf7321dad9c775e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2114,9 +2120,9 @@ SpriteRenderer:
   m_SortingLayerID: 1576810681
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d016fb0ef0d094e4ab94dd04181ed73f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 264100c772000c84bbceb97946bd391c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.2, y: 0.2}
@@ -2136,7 +2142,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1120540247
 GameObject:
@@ -2818,7 +2824,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1886976887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0.24, z: 0}
+  m_LocalPosition: {x: -1.091, y: -5.141, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1850290881}

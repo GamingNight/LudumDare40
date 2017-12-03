@@ -71,7 +71,7 @@ public class DialogBubble : MonoBehaviour {
 					{
 						//change the body color
 						vRenderer.color = vNewBodyColor;
-						vRenderer.sortingLayerName = "Other";
+						vRenderer.sortingLayerName = "Bubble";
 						vRenderer.flipX = flipX;
 						vRenderer.flipY = flipY;
 					}
@@ -79,7 +79,7 @@ public class DialogBubble : MonoBehaviour {
 					{
 						//change the border color
 						vRenderer.color = vNewBorderColor;
-						vRenderer.sortingLayerName = "Other";
+					vRenderer.sortingLayerName = "Bubble";
 						vRenderer.flipX = flipX;
 						vRenderer.flipY = flipY;
 					} 

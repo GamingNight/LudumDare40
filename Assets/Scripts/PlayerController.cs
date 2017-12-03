@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour {
             } else {
                 animator.SetInteger("walking", lastWalkingAnimationState);
             }
-            spriteRenderer.flipX = horizontal > 0;
+            spriteRenderer.flipX = horizontal < 0;
         } else {
             animator.SetInteger("walking", 0);
         }

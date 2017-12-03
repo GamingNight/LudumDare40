@@ -655,6 +655,11 @@ Prefab:
       propertyPath: positionY
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114982849098137092, guid: 8cc612abc94c98f489dda7015fcdd5da,
+        type: 2}
+      propertyPath: powerUp
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
   m_IsPrefabParent: 0
@@ -7332,7 +7337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10000
-  maxPower: 100
+  maxPower: 200
   healthUI: {fileID: 1666619014}
   powerUI: {fileID: 284404100}
 --- !u!114 &1886976893

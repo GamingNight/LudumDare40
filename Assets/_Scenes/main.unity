@@ -1312,6 +1312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1000
+  phase: 0
 --- !u!50 &739404030
 Rigidbody2D:
   serializedVersion: 4
@@ -2648,7 +2649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c926653e7a82f54c9765ab312d72b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.7
   DashSpeed: 2
   maxDashDistance: 1
 --- !u!114 &1886976894

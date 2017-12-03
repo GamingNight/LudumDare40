@@ -13,8 +13,10 @@ public class BossShootBullet : MonoBehaviour
     private float crtTime;
 	private int[] patternCombination;
 	private int[] patternCombinationP0 = {12,0,6,6,6,4,0,4,4,6,6,6,6,6,6,6,6,6,0,4,4,4,6,6,6,6,6,6,0,4,4,4,4,6,6,6,6,6,6,0,4,4,6,6,6,4,6,6,6,4,6,6,6,6,6,6,0,0};
-	private int[] patternCombinationP2 = {3,0,3,0,5,5,5,0,3,3,5,5,3,3,5,0,0};
-	private int[] patternCombinationP1 = {0};
+	private int[] patternCombinationP21 = {3,0,3,0,0,5,5,0,5,5,5,0,3,3,5,5,3,3,5,5,0,0};
+    private int[] patternCombinationP22 = {4,4,5,5,5,0,4,5,5,4,5,4,0,3,6,6,6,3,3,6,6,6,3,5,6,6,6,5,5,6,6,6,3,5,4,4,4,5,6,5,6,6,5,5,0,0};
+    private int[] patternCombinationP2 = { 3, 0, 3, 0, 0, 5, 5, 0, 5, 5, 5, 0, 3, 3, 5, 5, 3, 3, 5, 5, 0, 0, 4, 4, 5, 5, 5, 0, 4, 5, 5, 4, 5, 4, 0, 3, 6, 6, 6, 3, 3, 6, 6, 6, 3, 5, 6, 6, 6, 5, 5, 6, 6, 6, 3, 5, 4, 4, 4, 5, 6, 5, 6, 6, 5, 5, 0, 0 };
+    private int[] patternCombinationP1 = {0};
     //private float[] patternSpeeds = {-1f, -1f, -1f, 1f, -1f, -1f, -1f, 1f, 1f ,-1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, 1f, -1f, -1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f };
 	//private int[] patternCombination = {12, 0, 5};
 	//private float[] patternSpeeds = {-1f, -1f, 1.5f};

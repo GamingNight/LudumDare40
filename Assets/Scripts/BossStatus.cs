@@ -24,12 +24,19 @@ public class BossStatus : MonoBehaviour {
 	}
 
 	public void PhaseUpdate() {
-		if (phase == 0 && health < maxHealth / 2) {
-			// Pass to phase 1
-			incrementPhase ();
-			// Pass to phase 2
-			StartCoroutine(waitAndIncrementPhase(3));
-		}
+        if (phase == 0 && health < maxHealth / 3 * 2) {
+            // Pass to phase 1
+            incrementPhase();
+            // Pass to phase 2
+            StartCoroutine(waitAndIncrementPhase(3));
+        }
+            if (phase == 2 && health < maxHealth / 3)
+            {
+                // Pass to phase 3
+                incrementPhase();
+                // Pass to phase 4
+                StartCoroutine(waitAndIncrementPhase(3));
+            }
 	}
 
 	public void incrementPhase() {

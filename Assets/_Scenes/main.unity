@@ -463,6 +463,21 @@ Prefab:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 114412993584814266, guid: 8cc612abc94c98f489dda7015fcdd5da,
+        type: 2}
+      propertyPath: positionX
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114412993584814266, guid: 8cc612abc94c98f489dda7015fcdd5da,
+        type: 2}
+      propertyPath: flipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114412993584814266, guid: 8cc612abc94c98f489dda7015fcdd5da,
+        type: 2}
+      propertyPath: positionY
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
   m_IsPrefabParent: 0
@@ -1256,7 +1271,7 @@ MonoBehaviour:
     vBodyColor: {r: 1, g: 1, b: 1, a: 1}
     vFontColor: {r: 0, g: 0, b: 0, a: 1}
     vClickToCloseBubble: 0
-  positionX: 0.8
+  positionX: 0.6
   positionY: -0.5
   flipX: 0
   flipY: 1
@@ -1529,7 +1544,8 @@ MonoBehaviour:
   vCurrentBubble: {fileID: 0}
   IsTalking: 0
   vBubble:
-    vMessage: Iam mid Life
+    vMessage: HA HA! You're effort are in vain. Don't you see my power growing as
+      you struggle?
     vMessageForm: 0
     vBorderColor: {r: 0, g: 0, b: 0, a: 1}
     vBodyColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1778,8 +1794,8 @@ MonoBehaviour:
     vBodyColor: {r: 1, g: 1, b: 1, a: 1}
     vFontColor: {r: 0, g: 0, b: 0, a: 1}
     vClickToCloseBubble: 0
-  positionX: -0.8
-  positionY: -0.6
+  positionX: -0.5
+  positionY: -0.5
   flipX: 1
   flipY: 1
 --- !u!50 &838677127
@@ -2056,11 +2072,16 @@ Prefab:
     - target: {fileID: 114412993584814266, guid: 8cc612abc94c98f489dda7015fcdd5da,
         type: 2}
       propertyPath: positionX
-      value: -0.7
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1851773333083202, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
       propertyPath: m_TagString
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 114412993584814266, guid: 8cc612abc94c98f489dda7015fcdd5da,
+        type: 2}
+      propertyPath: positionY
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
@@ -2314,8 +2335,8 @@ MonoBehaviour:
     vBodyColor: {r: 1, g: 1, b: 1, a: 1}
     vFontColor: {r: 0, g: 0, b: 0, a: 1}
     vClickToCloseBubble: 0
-  positionX: 0.8
-  positionY: 0.6
+  positionX: 0.6
+  positionY: 0.5
   flipX: 0
   flipY: 0
 --- !u!50 &1084669311
@@ -3151,7 +3172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e401a83fff27d9419aff98f99c10cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10000
   maxPower: 100
   healthUI: {fileID: 1666619014}
   powerUI: {fileID: 284404100}

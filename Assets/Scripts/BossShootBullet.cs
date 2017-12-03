@@ -11,20 +11,23 @@ public class BossShootBullet : MonoBehaviour
 	public float defaultBulletSpeed;
 
     private float crtTime;
-	private int[] patternCombination = {12,4,12,4,12,4,12,4,0,0,0,0,5,5};
-	private float[] patternSpeeds = {-1f, -1f, -1f, -1f, -1f, -1f, -1f, -1f, -1f, -1f, -1f, -1f, 1f, 1f};
+    private int[] patternCombination = {12,0,6,6,6,4,0,4,4,6,6,6,6,6,6,6,6,6,0,4,4,4,6,6,6,6,6,6,0,4,4,4,4,6,6,6,6,6,6,0,4,4,6,6,6,4,6,6,6,4,6,6,6,6,6,6,0,0,3,0,3,0,5,5,5,0,3,3,5,5,3,3,5,0,0};
+    //private float[] patternSpeeds = {-1f, -1f, -1f, 1f, -1f, -1f, -1f, 1f, 1f ,-1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, 1f, -1f, -1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f };
 	//private int[] patternCombination = {12, 0, 5};
 	//private float[] patternSpeeds = {-1f, -1f, 1.5f};
     private int crtPatternIndex;
     private float realDeltaTimes;
     private bool patternRoutineFinished;
     private int patternNumber = 0;
+    private int Igat;
+
 
     private void Start()
     {
         crtPatternIndex = 0;
         patternRoutineFinished = false;
 		realDeltaTimes = defaultTimeInterval;
+        Igat = -1;
     }
 
     void Update()
@@ -39,13 +42,14 @@ public class BossShootBullet : MonoBehaviour
 			}
 
 			float crtSpeed = defaultBulletSpeed;
-			if (patternSpeeds [crtPatternIndex] != -1)
-				crtSpeed = patternSpeeds [crtPatternIndex];
+			//if (patternSpeeds [crtPatternIndex] != -1)
+			//	crtSpeed = patternSpeeds [crtPatternIndex];
 
             patternNumber = patternCombination[crtPatternIndex];
 			if (patternNumber == 0) {
 				//Empty pattern (pause)
 				crtPatternIndex++;
+                realDeltaTimes = defaultTimeInterval * 3;
 			}
 			if (patternNumber == 1) {
 				PatternPlus (crtSpeed);
@@ -60,7 +64,7 @@ public class BossShootBullet : MonoBehaviour
 			}
             else if (patternNumber == 3)
             {
-				StartCoroutine(PatternSpirale(10, crtSpeed));
+				StartCoroutine(PatternSpirale(15, crtSpeed));
                 if (patternRoutineFinished)
 				{
 					crtPatternIndex++;
@@ -73,9 +77,24 @@ public class BossShootBullet : MonoBehaviour
             }
             else if (patternNumber == 5)
             {
+                Debug.Log("lkseflksjdf   " + Igat);
+                Igat = Igat + 1;
                 Vector3 PosPlayer = (ThePlayer.transform.position - transform.position).normalized;
-				PatternWave(5, 50, PosPlayer, crtSpeed);
+				PatternWave(5, 75, PosPlayer, crtSpeed,4f-4f*Mathf.Pow(-1,-Igat));
                 crtPatternIndex++;
+                if (Igat > 0) { Igat = -1; }
+                realDeltaTimes = defaultTimeInterval / 3;
+            }
+            else if (patternNumber == 6)
+            {
+                crtSpeed = crtSpeed * Mathf.Pow(2, 1-Mathf.Abs(Igat));
+                crtSpeed = crtSpeed * Mathf.Pow(1.5f, Mathf.Abs(Igat));
+                realDeltaTimes = defaultTimeInterval / 2;
+                Vector3 PosPlayer = (ThePlayer.transform.position - transform.position).normalized;
+                StartCoroutine(PatternGatling(4, PosPlayer, crtSpeed,30*Igat));
+                crtPatternIndex++;
+                Igat = Igat + 1;
+                if (Igat > 1) { Igat = -1; }
             }
             crtTime = 0;
         }
@@ -141,13 +160,13 @@ public class BossShootBullet : MonoBehaviour
 			bulletInstance.GetComponent<Bullet>().initSpeed = speed;
         }
     }
-	void PatternWave(int NumBullet, float DeltaAngle, Vector3 Dir, float speed)
+	void PatternWave(int NumBullet, float DeltaAngle, Vector3 Dir, float speed,float Offset)
     {
         for (int i = 0; i < NumBullet; i++)
         {
             GameObject bulletInstance = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
             bulletInstance.transform.parent = transform;
-            Vector3 Direction = (Quaternion.Euler(0, 0, DeltaAngle/NumBullet*(i-1f*NumBullet/2f)) * Dir).normalized;
+            Vector3 Direction = (Quaternion.Euler(0, 0, DeltaAngle/NumBullet*(i-1f*NumBullet/2f)+Offset) * Dir).normalized;
             bulletInstance.GetComponent<Bullet>().direction = Direction;
             //new Vector3(Mathf.Cos(2 * Mathf.PI / NumBullet * i * DeltaAngle / 360+2 *Mathf.PI/360*angleInit), Mathf.Sin(2 * Mathf.PI / NumBullet * i * DeltaAngle / 360 + 2 * Mathf.PI / 360 * angleInit), 0);
             bulletInstance.GetComponent<Bullet>().type = Bullet.Type.BOSS;
@@ -161,6 +180,21 @@ public class BossShootBullet : MonoBehaviour
 		bulletInstance.GetComponent<Bullet>().direction = new Vector3(Mathf.Cos(2 * Mathf.PI / 360 * Angle), Mathf.Sin(2 * Mathf.PI / 360 * Angle), 0).normalized;
         bulletInstance.GetComponent<Bullet>().type = Bullet.Type.BOSS;
 		bulletInstance.GetComponent<Bullet>().initSpeed = speed;
+    }
+    IEnumerator PatternGatling(float bulletNumber, Vector3 Dir, float speed,int Offset)
+    {
+        int crtBulletIndex = 0;
+        while (crtBulletIndex < bulletNumber)
+        {
+            GameObject bulletInstance = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
+            bulletInstance.transform.parent = transform;
+            Vector3 Direction = (Quaternion.Euler(0, 0, Mathf.Pow(-1,crtBulletIndex)*crtBulletIndex+Offset) * Dir).normalized;
+            bulletInstance.GetComponent<Bullet>().direction = Direction;
+            bulletInstance.GetComponent<Bullet>().type = Bullet.Type.BOSS;
+            bulletInstance.GetComponent<Bullet>().initSpeed = speed;
+            crtBulletIndex++;
+            yield return new WaitForSeconds(defaultTimeInterval / bulletNumber);
+        }
     }
 
     IEnumerator PatternSpirale(int bulletNumber, float speed)

@@ -11,7 +11,10 @@ public class BossShootBullet : MonoBehaviour
 	public float defaultBulletSpeed;
 
     private float crtTime;
-    private int[] patternCombination = {12,0,6,6,6,4,0,4,4,6,6,6,6,6,6,6,6,6,0,4,4,4,6,6,6,6,6,6,0,4,4,4,4,6,6,6,6,6,6,0,4,4,6,6,6,4,6,6,6,4,6,6,6,6,6,6,0,0,3,0,3,0,5,5,5,0,3,3,5,5,3,3,5,0,0};
+	private int[] patternCombination;
+	private int[] patternCombinationP0 = {12,0,6,6,6,4,0,4,4,6,6,6,6,6,6,6,6,6,0,4,4,4,6,6,6,6,6,6,0,4,4,4,4,6,6,6,6,6,6,0,4,4,6,6,6,4,6,6,6,4,6,6,6,6,6,6,0,0};
+	private int[] patternCombinationP2 = {3,0,3,0,5,5,5,0,3,3,5,5,3,3,5,0,0};
+	private int[] patternCombinationP1 = {0};
     //private float[] patternSpeeds = {-1f, -1f, -1f, 1f, -1f, -1f, -1f, 1f, 1f ,-1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, 1f, -1f, -1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f };
 	//private int[] patternCombination = {12, 0, 5};
 	//private float[] patternSpeeds = {-1f, -1f, 1.5f};
@@ -32,7 +35,12 @@ public class BossShootBullet : MonoBehaviour
 
     void Update()
     {
+		int phase = GetComponent<BossStatus> ().phase;
+		if (phase == 0) {patternCombination = patternCombinationP0;}
+		else if (phase==1) {patternCombination = patternCombinationP1;}
+		else if (phase==2) {patternCombination = patternCombinationP2;}
         crtTime += Time.deltaTime;
+
         if (crtTime >= realDeltaTimes)
         {
             realDeltaTimes = defaultTimeInterval;

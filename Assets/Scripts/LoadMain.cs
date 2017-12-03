@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ReloadMain : MonoBehaviour {
+public class LoadMain : MonoBehaviour {
 
-    public void Retry() {
+    public void Load() {
 
         SceneManager.LoadScene("main");
     }

@@ -12,11 +12,11 @@ public class PlayerShootBullet : MonoBehaviour {
 
 		// desactive shoot if the boss is in pahse 1
 		GameObject boss = GameObject.Find("Boss");
-		if (boss && boss.GetComponent<BossStatus> ().phase == 1)
+		if (boss && boss.GetComponent<BossStatus> ().phase == 1 || boss && boss.GetComponent<BossStatus>().phase == 3)
 			active = false;
 
 		//resactive shoot if the boss is in pahse 2
-		if (boss && boss.GetComponent<BossStatus> ().phase == 2 && !activeLockGuard)
+		if ((boss && boss.GetComponent<BossStatus> ().phase == 2 && !activeLockGuard)|| (boss && boss.GetComponent<BossStatus>().phase == 4 && !activeLockGuard))
 		{
 			activeLockGuard = true;
 			StartCoroutine (waitAndReactive(5));

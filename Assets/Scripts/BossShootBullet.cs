@@ -13,9 +13,9 @@ public class BossShootBullet : MonoBehaviour
     private float crtTime;
 	private int[] patternCombination;
 	private int[] patternCombinationP0 = {12,0,6,6,6,4,0,4,4,6,6,6,6,6,6,6,6,6,0,4,4,4,6,6,6,6,6,6,0,4,4,4,4,6,6,6,6,6,6,0,4,4,6,6,6,4,6,6,6,4,6,6,6,6,6,6,0,0};
-	private int[] patternCombinationP21 = {3,0,3,0,0,5,5,0,5,5,5,0,3,3,5,5,3,3,5,5,0,0};
-    private int[] patternCombinationP22 = {4,4,5,5,5,0,4,5,5,4,5,4,0,3,6,6,6,3,3,6,6,6,3,5,6,6,6,5,5,6,6,6,3,5,4,4,4,5,6,5,6,6,5,5,0,0};
-    private int[] patternCombinationP2 = { 3, 0, 3, 0, 0, 5, 5, 0, 5, 5, 5, 0, 3, 3, 5, 5, 3, 3, 5, 5, 0, 0, 4, 4, 5, 5, 5, 0, 4, 5, 5, 4, 5, 4, 0, 3, 6, 6, 6, 3, 3, 6, 6, 6, 3, 5, 6, 6, 6, 5, 5, 6, 6, 6, 3, 5, 4, 4, 4, 5, 6, 5, 6, 6, 5, 5, 0, 0 };
+	private int[] patternCombinationP2 = {3,0,3,0,0,5,5,0,5,5,5,0,3,3,5,5,3,3,5,5,0,0};
+    private int[] patternCombinationP4 = {4,4,5,5,5,0,4,5,5,4,5,4,0,3,6,6,6,3,3,6,6,6,3,5,6,6,6,5,5,6,6,6,3,5,4,4,4,5,6,5,6,6,5,5,0,0};
+    private int[] patternCombinationP22 = { 3, 0, 3, 0, 0, 5, 5, 0, 5, 5, 5, 0, 3, 3, 5, 5, 3, 3, 5, 5, 0, 0, 4, 4, 5, 5, 5, 0, 4, 5, 5, 4, 5, 4, 0, 3, 6, 6, 6, 3, 3, 6, 6, 6, 3, 5, 6, 6, 6, 5, 5, 6, 6, 6, 3, 5, 4, 4, 4, 5, 6, 5, 6, 6, 5, 5, 0, 0 };
     private int[] patternCombinationP1 = {0};
     //private float[] patternSpeeds = {-1f, -1f, -1f, 1f, -1f, -1f, -1f, 1f, 1f ,-1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, 1f, -1f, -1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f, -1f, 1f, 1f, -1f, -1f, -1f };
 	//private int[] patternCombination = {12, 0, 5};
@@ -41,6 +41,8 @@ public class BossShootBullet : MonoBehaviour
 		if (phase == 0) {patternCombination = patternCombinationP0;}
 		else if (phase==1) {patternCombination = patternCombinationP1;}
 		else if (phase==2) {patternCombination = patternCombinationP2;}
+        else if (phase == 3) { patternCombination = patternCombinationP1; }
+        else if (phase == 4) { patternCombination = patternCombinationP4; }
         crtTime += Time.deltaTime;
 
         if (crtTime >= realDeltaTimes)
@@ -87,7 +89,6 @@ public class BossShootBullet : MonoBehaviour
             }
             else if (patternNumber == 5)
             {
-                Debug.Log("lkseflksjdf   " + Igat);
                 Igat = Igat + 1;
                 Vector3 PosPlayer = (ThePlayer.transform.position - transform.position).normalized;
 				PatternWave(5, 75, PosPlayer, crtSpeed,4f-4f*Mathf.Pow(-1,-Igat));

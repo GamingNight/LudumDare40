@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour {
     private float dashDistance;
     private Vector3 prevPosition;
     private float relativeMaxDashDistance;
-    private bool lockMovement;
+    private bool lockMovements;
+	private bool breakDash;
 
     void Start() {
 
@@ -28,7 +29,8 @@ public class PlayerController : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
         isDashing = false;
         dashDistance = 0;
-        lockMovement = false;
+		lockMovements = false;
+		breakDash = false;
         lastWalkingAnimationState = 1;
     }
 
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Move() {
 
-        if (lockMovement)//is dashing => lock movement
+        if (lockMovements)//is dashing => lock movement
             return;
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -70,7 +72,10 @@ public class PlayerController : MonoBehaviour {
 
     private void Dash() {
 
-        bool dash = Input.GetMouseButtonDown(1);
+		bool dash = false;
+		if(!lockMovements)
+        	dash = Input.GetMouseButtonDown(1);
+		
         if (dash) {
             Vector3 mouseToPlayerDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             mouseToPlayerDirection.z = 0;
@@ -79,7 +84,7 @@ public class PlayerController : MonoBehaviour {
             dashDistance = 0;
             prevPosition = transform.position;
             relativeMaxDashDistance = Mathf.Min(maxDashDistance, mouseToPlayerDirection.magnitude);
-            lockMovement = true;
+            lockMovements = true;
             spriteRenderer.flipX = mouseToPlayerDirection.x > 0;
 
 			//Dash animation
@@ -92,7 +97,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (isDashing) {
-            if (dashDistance < relativeMaxDashDistance) {
+			if (dashDistance < relativeMaxDashDistance && !breakDash) {
                 Vector3 diff = transform.position - prevPosition;
                 diff.z = 0;
                 dashDistance += diff.magnitude;
@@ -101,8 +106,15 @@ public class PlayerController : MonoBehaviour {
                 rgbd.velocity = Vector2.zero;
                 isDashing = false;
                 dashDistance = 0;
-                lockMovement = false;
+                lockMovements = false;
+				breakDash = false;
             }
         }
     }
+
+	void OnCollisionStay2D(Collision2D other)
+	{
+		if (isDashing)
+			breakDash = true;
+	}
 }

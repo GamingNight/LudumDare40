@@ -6,6 +6,7 @@ public class NPCTrigger : MonoBehaviour {
 
 	public GameObject deadBubbleGameObject;
 	public PlayerStatus playerStatus;
+	public bool isActivated = false;
 	public int powerUp;
 	private DialogBubble crtBubble;
 
@@ -23,6 +24,7 @@ public class NPCTrigger : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.A) && crtBubble.IsTalking){
 			crtBubble.vCurrentBubble.GetComponent<Appear> ().Disable ();
 			animator.SetBool ("dead", true);
+			isActivated = true;
 		}
 	}
 

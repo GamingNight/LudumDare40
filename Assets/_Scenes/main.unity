@@ -424,6 +424,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 3130bb87bc62cf647975f4ad50480070,
         type: 3}
+    - target: {fileID: 1851773333083202, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
   m_IsPrefabParent: 0
@@ -1054,7 +1058,7 @@ GameObject:
   - component: {fileID: 617986627}
   m_Layer: 0
   m_Name: NPC papi4
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1575,7 +1579,7 @@ GameObject:
   - component: {fileID: 838677124}
   m_Layer: 0
   m_Name: NPC papi
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1819,6 +1823,10 @@ Prefab:
       propertyPath: positionX
       value: -0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 1851773333083202, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
   m_IsPrefabParent: 0
@@ -2011,7 +2019,7 @@ GameObject:
   - component: {fileID: 1084669308}
   m_Layer: 0
   m_Name: NPC papi3
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

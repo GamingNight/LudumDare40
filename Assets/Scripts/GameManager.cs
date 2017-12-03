@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
 
     private static GameManager instance;
 
+    public static int killedInhabitants;
+
     public static GameManager GetInstance() {
 
         return instance;

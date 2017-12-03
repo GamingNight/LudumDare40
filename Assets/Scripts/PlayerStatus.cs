@@ -9,14 +9,12 @@ public class PlayerStatus : MonoBehaviour {
 
     private int health;
     private int power;
-	private int friendKilled;
     private Animator animator;
 
     private void Start() {
 
         health = maxHealth;
         power = 10;
-		friendKilled = 0;
         animator = GetComponent<Animator>();
     }
 
@@ -30,9 +28,9 @@ public class PlayerStatus : MonoBehaviour {
     }
 
     public void PowerUp(int value) {
-        friendKilled++; ;
+        GameManager.killedInhabitants++;
         power = Mathf.Min(value + power, maxPower);
-		Debug.Log ("player has been powered up of " + value + " points! Total points = " + power + " from " + friendKilled + "Friend!" );
+		Debug.Log ("player has been powered up of " + value + " points! Total points = " + power + " from " + GameManager.killedInhabitants + "Friends!" );
     }
 
     public int GetPower() {

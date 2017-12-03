@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5594,6 +5594,7 @@ GameObject:
   - component: {fileID: 739404029}
   - component: {fileID: 739404031}
   - component: {fileID: 739404030}
+  - component: {fileID: 739404032}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -5737,6 +5738,30 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.01}
   m_Size: {x: 0.8, y: 0.5}
   m_Direction: 1
+--- !u!114 &739404032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 739404024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37722d81c4896c14ca69cdf60e52d9b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vCurrentBubble: {fileID: 0}
+  IsTalking: 0
+  vBubble:
+    vMessage: 
+    vMessageForm: 0
+    vBorderColor: {r: 0, g: 0, b: 0, a: 1}
+    vBodyColor: {r: 1, g: 1, b: 1, a: 1}
+    vFontColor: {r: 0, g: 0, b: 0, a: 1}
+    vClickToCloseBubble: 0
+  positionX: 0
+  positionY: 0
+  flipX: 0
+  flipY: 0
 --- !u!1 &742713259
 GameObject:
   m_ObjectHideFlags: 0
@@ -14311,7 +14336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e401a83fff27d9419aff98f99c10cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10000
   maxPower: 100
 --- !u!114 &1886976893
 MonoBehaviour:

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8a83f7dcdb158d34895fcc16215414dd
+timeCreated: 1512296074
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Acadian Runes
+  fontNames:
+  - Acadian Runes
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

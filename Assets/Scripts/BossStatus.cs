@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossStatus : MonoBehaviour {
 
     public int maxHealth;
+    public Image healthUI;
 
 	// 0 init = start shoot
 	// 1 display message
@@ -54,6 +56,7 @@ public class BossStatus : MonoBehaviour {
     public void TakeDamages(int damages) {
 
         health = Mathf.Max(health - damages, 0);
+        healthUI.rectTransform.localScale = new Vector3((float)health / maxHealth, healthUI.rectTransform.localScale.y, healthUI.rectTransform.localScale.z);
         Debug.Log("Player takes " + damages + " damages! Remaining life = " + health);
         if (health <= 0) {
             GameManager.GetInstance().Winner();

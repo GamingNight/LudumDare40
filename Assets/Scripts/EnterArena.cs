@@ -6,6 +6,7 @@ public class EnterArena : MonoBehaviour {
 
 	public GameObject myCamera;
 	public GameObject invisibleWall;
+    public GameObject bossUI;
 
 	void OnTriggerEnter2D(Collider2D other){
 
@@ -13,6 +14,7 @@ public class EnterArena : MonoBehaviour {
 			myCamera.GetComponent<CameraFollowPlayer>().enabled = false;
 			myCamera.GetComponent<CameraBoss>().enabled = true;
 			invisibleWall.SetActive (true);
+            bossUI.SetActive(true);
 		}
 	}
 }

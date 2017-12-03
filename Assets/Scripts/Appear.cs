@@ -9,7 +9,6 @@ public class Appear : MonoBehaviour {
 	public float valpha = 0f;
 	public bool vchoice = true;
 	public float vTimer = 5f;
-	private float cTime = 0f;
 
 	// Use this for initialization
 	void Start () {

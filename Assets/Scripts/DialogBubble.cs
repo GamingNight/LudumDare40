@@ -21,8 +21,6 @@ public class DialogBubble : MonoBehaviour {
     //show the right bubble on the current character
 	void ShowBubble()
 	{
-		bool gotonextbubble = false;
-			
 		//make sure the bubble isn't already opened
 			if (vCurrentBubble == null)
 			{

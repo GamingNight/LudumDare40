@@ -117,7 +117,7 @@ public class DialogBubble : MonoBehaviour {
 			}
 	}
 
-    void Update(Collider2D other) {
+    void Update() {
         if (tag != "Boss")
             return;
         // Do something

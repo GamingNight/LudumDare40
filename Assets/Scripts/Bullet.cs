@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour {
         //}
 		if (playerHitsBoss || bossHitsPlayer || hitBackground) { //|| bulletHitsBullet) { 
             Destroy(gameObject);
-            Instantiate<GameObject>(ExplosionPrefab, transform.position, Quaternion.identity);
+			Instantiate<GameObject>(ExplosionPrefab, transform.position, Quaternion.identity);
             if (other.gameObject.tag == "Player") {
                 other.gameObject.GetComponent<PlayerStatus>().TakeDamages(transform.parent.GetComponent<BossStatus>().GetPower());
             } else if (other.gameObject.tag == "Boss") {

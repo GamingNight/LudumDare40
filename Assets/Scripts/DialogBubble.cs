@@ -16,13 +16,10 @@ public class DialogBubble : MonoBehaviour {
 	public float positionY = 0;
 	public bool flipX;
 	public bool flipY;
-	private PixelBubble vActiveBubble = null;
 
     //show the right bubble on the current character
 	void ShowBubble()
 	{
-		bool gotonextbubble = false;
-			
 		//make sure the bubble isn't already opened
 			if (vCurrentBubble == null)
 			{
@@ -101,14 +98,25 @@ public class DialogBubble : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) 
 	{
+		// Do not show boss bupble this trigger detection see Update function
+		if  (tag == "Boss")
+			return;
+
         if (other.gameObject.tag != "Player")
             return;
+
+		// do not show bubble when npc is going to be deleted
+		if (tag == "NPC" && GetComponent<NPCTrigger> ().isActivated)
+			return;
 
         ShowBubble();
 	}
 
 	void OnTriggerExit2D(Collider2D other) 
 	{
+		if  (tag == "Boss")
+			return;
+	
         if  (other.gameObject.tag != "Player")
             return;
 
@@ -118,8 +126,22 @@ public class DialogBubble : MonoBehaviour {
 	}
 
     void Update() {
+		// Only Boss design
         if (tag != "Boss")
             return;
-        // Do something
+
+		if (GetComponent<BossStatus> ().phase == 1) {
+			if (vCurrentBubble != null)
+				return;
+
+			StartCoroutine (bossPhase1 ());
+		}
     }
+		
+	IEnumerator bossPhase1() {
+		ShowBubble();
+		yield return new WaitForSeconds(5);
+		vCurrentBubble.GetComponent<Appear> ().Disable ();
+		}
+
 }

@@ -5,10 +5,24 @@ using UnityEngine;
 public class PlayerShootBullet : MonoBehaviour {
 
     public GameObject bulletPrefab;
+	private bool active = true;
+	private bool activeLockGuard = false;
 
     void Update() {
 
-        if (Input.GetMouseButtonDown(0)) {
+		// desactive shoot if the boss is in pahse 1
+		GameObject boss = GameObject.Find("Boss");
+		if (boss && boss.GetComponent<BossStatus> ().phase == 1)
+			active = false;
+
+		//resactive shoot if the boss is in pahse 2
+		if (boss && boss.GetComponent<BossStatus> ().phase == 2 && !activeLockGuard)
+		{
+			activeLockGuard = true;
+			StartCoroutine (waitAndReactive(5));
+		}
+
+		if (active && Input.GetMouseButtonDown(0)) {
             GameObject bulletInstance = Instantiate<GameObject>(bulletPrefab, transform.position, Quaternion.identity);
             bulletInstance.transform.parent = transform;
             Vector3 bulletDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
@@ -17,4 +31,11 @@ public class PlayerShootBullet : MonoBehaviour {
             bulletInstance.GetComponent<Bullet>().type = Bullet.Type.PLAYER;
         }
     }
+		
+	IEnumerator waitAndReactive(float spendTime) {
+		yield return new WaitForSeconds(spendTime);
+		active = true;
+		activeLockGuard = false;
+	}
 }
+		

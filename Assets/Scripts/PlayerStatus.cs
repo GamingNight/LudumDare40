@@ -30,7 +30,7 @@ public class PlayerStatus : MonoBehaviour {
     }
 
     public void PowerUp(int value) {
-		friendKilled = friendKilled + 1;
+        friendKilled++; ;
         power = Mathf.Min(value + power, maxPower);
 		Debug.Log ("player has been powered up of " + value + " points! Total points = " + power + " from " + friendKilled + "Friend!" );
     }
@@ -48,6 +48,7 @@ public class PlayerStatus : MonoBehaviour {
         foreach (Collider2D c in colliders) {
             c.enabled = false;
         }
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero; 
         animator.SetTrigger("death");
     }
 

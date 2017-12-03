@@ -16,7 +16,7 @@ public class BossStatus : MonoBehaviour {
 
     private void Start() {
         health = maxHealth;
-        power = 50;
+        power = 30;
     }
 
 	void Update() {

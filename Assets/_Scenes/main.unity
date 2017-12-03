@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5703,6 +5703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1000
+  phase: 0
 --- !u!50 &739404030
 Rigidbody2D:
   serializedVersion: 4
@@ -5752,14 +5753,14 @@ MonoBehaviour:
   vCurrentBubble: {fileID: 0}
   IsTalking: 0
   vBubble:
-    vMessage: 
+    vMessage: Iam mid Life
     vMessageForm: 0
     vBorderColor: {r: 0, g: 0, b: 0, a: 1}
     vBodyColor: {r: 1, g: 1, b: 1, a: 1}
     vFontColor: {r: 0, g: 0, b: 0, a: 1}
     vClickToCloseBubble: 0
-  positionX: 0
-  positionY: 0
+  positionX: 0.7
+  positionY: 0.7
   flipX: 0
   flipY: 0
 --- !u!1 &742713259

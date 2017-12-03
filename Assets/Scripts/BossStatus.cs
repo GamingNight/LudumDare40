@@ -9,7 +9,7 @@ public class BossStatus : MonoBehaviour {
 	// 0 init = start shoot
 	// 1 display message
 	// 2 shoot again
-	private int phase = 0;
+	public int phase = 0;
 
     private int health;
     private int power;

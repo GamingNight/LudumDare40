@@ -15,10 +15,12 @@ public class BossStatus : MonoBehaviour {
 
     private int health;
     private int power;
+	private int nbShoot;
 
     private void Start() {
         health = maxHealth;
         power = 30;
+		nbShoot = 0;
     }
 
 	void Update() {
@@ -26,13 +28,14 @@ public class BossStatus : MonoBehaviour {
 	}
 
 	public void PhaseUpdate() {
-        if (phase == 0 && health < maxHealth / 3 * 2) {
+		// player power must be 1 so maxHealth = the exact number of shoot to kill the boss
+		if (phase == 0 && nbShoot > maxHealth / 3) {
             // Pass to phase 1
             incrementPhase();
             // Pass to phase 2
             StartCoroutine(waitAndIncrementPhase(3));
         }
-            if (phase == 2 && health < maxHealth / 3)
+		if (phase == 2 && nbShoot > maxHealth * 2 / 3)
             {
                 // Pass to phase 3
                 incrementPhase();
@@ -54,7 +57,7 @@ public class BossStatus : MonoBehaviour {
 	}
 		
     public void TakeDamages(int damages) {
-
+		nbShoot++;
         health = Mathf.Max(health - damages, 0);
         healthUI.rectTransform.localScale = new Vector3((float)health / maxHealth, healthUI.rectTransform.localScale.y, healthUI.rectTransform.localScale.z);
         Debug.Log("Player takes " + damages + " damages! Remaining life = " + health);

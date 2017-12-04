@@ -339,7 +339,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &197796363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,7 +658,7 @@ Prefab:
     - target: {fileID: 114982849098137092, guid: 8cc612abc94c98f489dda7015fcdd5da,
         type: 2}
       propertyPath: powerUp
-      value: 100
+      value: 199
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
@@ -822,7 +822,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &248181194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -942,7 +942,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &265034220
 GameObject:
@@ -999,7 +999,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &265034223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,7 +1588,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &387059076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,7 +1765,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &389981098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1885,7 +1885,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &502706410
 GameObject:
@@ -2010,7 +2010,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &506472435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2308,7 +2308,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &584219816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2428,7 +2428,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586751518
 GameObject:
@@ -2597,7 +2597,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &617986629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2774,7 +2774,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &688835744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2951,7 +2951,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &717379087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3195,7 +3195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8177d7d96d0d93e42983fd13d461136d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 500
   healthUI: {fileID: 502706412}
   phase: 0
 --- !u!50 &739404030
@@ -3436,7 +3436,7 @@ GameObject:
   - component: {fileID: 803327820}
   - component: {fileID: 803327819}
   m_Layer: 0
-  m_Name: NPC normal4 child (1)
+  m_Name: NPC normal1 child
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3475,7 +3475,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &803327821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3595,7 +3595,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &838677123
 GameObject:
@@ -3652,7 +3652,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &838677126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3937,7 +3937,7 @@ Prefab:
     - target: {fileID: 114982849098137092, guid: 8cc612abc94c98f489dda7015fcdd5da,
         type: 2}
       propertyPath: powerUp
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 95888896897891796, guid: 8cc612abc94c98f489dda7015fcdd5da,
         type: 2}
@@ -4108,7 +4108,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &945343322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4285,7 +4285,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &981757245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4405,7 +4405,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1059482146
 GameObject:
@@ -4462,7 +4462,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1059482149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4639,7 +4639,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1061983218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4759,7 +4759,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1065328378
 GameObject:
@@ -4902,7 +4902,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1084669310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5079,7 +5079,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1105329983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5410,7 +5410,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1163599498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5655,7 +5655,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1295909485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5775,7 +5775,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1329294211
 GameObject:
@@ -5900,7 +5900,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1330307226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6168,7 +6168,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1426900140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6395,7 +6395,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1620923212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6640,7 +6640,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1716764827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6822,7 +6822,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1753118566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7337,7 +7337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10000
-  maxPower: 200
+  maxPower: 500
   healthUI: {fileID: 1666619014}
   powerUI: {fileID: 284404100}
 --- !u!114 &1886976893
@@ -7734,7 +7734,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &1929907346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7953,7 +7953,7 @@ MonoBehaviour:
   deadBubbleGameObject: {fileID: 0}
   playerStatus: {fileID: 1886976892}
   isActivated: 0
-  powerUp: 3
+  powerUp: 10
 --- !u!114 &2003747390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8290,7 +8290,7 @@ Prefab:
     - target: {fileID: 114982849098137092, guid: 8cc612abc94c98f489dda7015fcdd5da,
         type: 2}
       propertyPath: powerUp
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 95888896897891796, guid: 8cc612abc94c98f489dda7015fcdd5da,
         type: 2}

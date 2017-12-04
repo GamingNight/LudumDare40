@@ -19,7 +19,7 @@ public class PlayerShootBullet : MonoBehaviour {
 		if ((boss && boss.GetComponent<BossStatus> ().phase == 2 && !activeLockGuard)|| (boss && boss.GetComponent<BossStatus>().phase == 4 && !activeLockGuard))
 		{
 			activeLockGuard = true;
-			StartCoroutine (waitAndReactive(5));
+			StartCoroutine (waitAndReactive(3));
 		}
 
 		if (active && Input.GetMouseButtonDown(0)) {

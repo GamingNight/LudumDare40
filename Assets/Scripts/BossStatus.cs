@@ -19,7 +19,7 @@ public class BossStatus : MonoBehaviour {
 
     private void Start() {
         health = maxHealth;
-        power = 30;
+        power = 15;
 		nbShoot = 0;
     }
 
@@ -46,7 +46,7 @@ public class BossStatus : MonoBehaviour {
 
 	public void incrementPhase() {
 
-		Debug.Log("Boss change phase "  + phase + " to " + (phase+1));
+		//Debug.Log("Boss change phase "  + phase + " to " + (phase+1));
 		phase = phase + 1;
 	}
 
@@ -60,7 +60,7 @@ public class BossStatus : MonoBehaviour {
 		nbShoot++;
         health = Mathf.Max(health - damages, 0);
         healthUI.rectTransform.localScale = new Vector3((float)health / maxHealth, healthUI.rectTransform.localScale.y, healthUI.rectTransform.localScale.z);
-        Debug.Log("Player takes " + damages + " damages! Remaining life = " + health);
+        //Debug.Log("Player takes " + damages + " damages! Remaining life = " + health);
         if (health <= 0) {
             GameManager.GetInstance().Winner();
         }

@@ -134,13 +134,19 @@ public class DialogBubble : MonoBehaviour {
 			if (vCurrentBubble != null)
 				return;
 
-			StartCoroutine (bossPhase1 ());
-		}
+			StartCoroutine (bossPhase ());
+		}else if(GetComponent<BossStatus>().phase == 3) {
+            if (vCurrentBubble != null)
+                return;
+
+            vBubble.vMessage = "Don't you dare...your people are enslaving me for ages. I just want to be free. Let me leave!";
+            StartCoroutine(bossPhase());
+        }
     }
 		
-	IEnumerator bossPhase1() {
+	IEnumerator bossPhase() {
 		ShowBubble();
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(3);
 		vCurrentBubble.GetComponent<Appear> ().Disable ();
 		}
 

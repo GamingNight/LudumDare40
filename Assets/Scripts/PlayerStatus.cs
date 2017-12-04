@@ -25,7 +25,7 @@ public class PlayerStatus : MonoBehaviour {
 
         health = Mathf.Max(health - damages, 0);
         healthUI.rectTransform.localScale = new Vector3((float)health / maxHealth, healthUI.rectTransform.localScale.y, healthUI.rectTransform.localScale.z);
-        Debug.Log("Player takes " + damages + " damages! Remaining life = " + health);
+        //Debug.Log("Player takes " + damages + " damages! Remaining life = " + health);
         if (health <= 0) {
             Die();
         }
@@ -35,7 +35,7 @@ public class PlayerStatus : MonoBehaviour {
         GameManager.killedInhabitants++;
         power = Mathf.Min(value + power, maxPower);
         powerUI.rectTransform.localScale = new Vector3((float)power / maxPower, powerUI.rectTransform.localScale.y, powerUI.rectTransform.localScale.z);
-        Debug.Log("player has been powered up of " + value + " points! Total points = " + power + " from " + GameManager.killedInhabitants + "Friends!");
+        //Debug.Log("player has been powered up of " + value + " points! Total points = " + power + " from " + GameManager.killedInhabitants + "Friends!");
     }
 
     public int GetPower() {

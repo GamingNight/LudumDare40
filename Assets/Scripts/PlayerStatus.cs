@@ -47,9 +47,11 @@ public class PlayerStatus : MonoBehaviour {
 
         GetComponent<PlayerController>().enabled = false;
         GetComponent<PlayerShootBullet>().enabled = false;
-        Collider2D[] colliders = GetComponents<Collider2D>();
-        foreach (Collider2D c in colliders) {
+        foreach (Collider2D c in GetComponents<Collider2D>()) {
             c.enabled = false;
+        }
+        foreach (AudioSource src in GetComponents<AudioSource>()) {
+            src.Stop();
         }
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         animator.SetTrigger("death");

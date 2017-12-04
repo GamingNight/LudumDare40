@@ -29,13 +29,12 @@ public class PlayerController : MonoBehaviour {
         rgbd = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        AudioSource[] sources = GetComponents<AudioSource>();
-        if (sources[0].clip.name == "hero-walk") {
-            walkAudioSource = sources[0];
-            dashAudioSource = sources[1];
-        } else {
-            walkAudioSource = sources[1];
-            dashAudioSource = sources[0];
+        foreach (AudioSource src in GetComponents<AudioSource>()) {
+            if (src.clip.name == "hero-walk") {
+                walkAudioSource = src;
+            } else if (src.clip.name == "hero-dash") {
+                dashAudioSource = src;
+            }
         }
         isDashing = false;
         dashDistance = 0;

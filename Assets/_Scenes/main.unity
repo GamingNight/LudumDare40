@@ -781,7 +781,7 @@ Prefab:
     - target: {fileID: 114982849098137092, guid: 8cc612abc94c98f489dda7015fcdd5da,
         type: 2}
       propertyPath: powerUp
-      value: 199
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 114412993584814266, guid: 8cc612abc94c98f489dda7015fcdd5da,
         type: 2}

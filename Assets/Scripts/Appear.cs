@@ -31,6 +31,10 @@ public class Appear : MonoBehaviour {
 	//make the alpha appear
 	public void ImageAppear()
 	{
+		// Do not display empty bubble
+		if (transform.parent.GetComponent<DialogBubble>().vBubble.vMessage == "")
+			return;
+
 		foreach (SpriteRenderer vRenderer in vImages)
 			vRenderer.color = new Color (vRenderer.color.r, vRenderer.color.g, vRenderer.color.b, valpha);
 

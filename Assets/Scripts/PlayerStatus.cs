@@ -17,7 +17,7 @@ public class PlayerStatus : MonoBehaviour {
     private void Start() {
 
         health = maxHealth;
-        power = 10;
+        power = 1;
         animator = GetComponent<Animator>();
     }
 

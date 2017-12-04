@@ -52,7 +52,7 @@ public class DialogBubble : MonoBehaviour {
 				
 				//create bubble
 				vBubbleObject = Instantiate(Resources.Load<GameObject> ("Customs/BubbleRectangle"));
-			vBubbleObject.transform.position = transform.position + new Vector3(positionX, positionY, 0f); //move a little bit the teleport particle effect
+				vBubbleObject.transform.position = transform.position + new Vector3(positionX, positionY, 0f); //move a little bit the teleport particle effect
 				
 				Color vNewBodyColor = new Color(vBubble.vBodyColor.r, vBubble.vBodyColor.g, vBubble.vBodyColor.b, 0f);
 				Color vNewBorderColor = new Color(vBubble.vBorderColor.r, vBubble.vBorderColor.g, vBubble.vBorderColor.b, 0f);

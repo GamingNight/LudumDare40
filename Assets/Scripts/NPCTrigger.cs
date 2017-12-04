@@ -21,7 +21,7 @@ public class NPCTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(Input.GetKeyDown(KeyCode.A) && crtBubble.IsTalking){
+		if(Input.GetKeyDown(KeyCode.A) && (crtBubble.IsTalking)){
 			crtBubble.vCurrentBubble.GetComponent<Appear> ().Disable ();
 			animator.SetBool ("dead", true);
 			isActivated = true;

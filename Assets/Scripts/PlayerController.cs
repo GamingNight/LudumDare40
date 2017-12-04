@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D rgbd;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private AudioSource walkAudioSource;
+    private AudioSource dashAudioSource;
 
     private Vector3 movement;
     private int lastWalkingAnimationState;
@@ -20,17 +22,25 @@ public class PlayerController : MonoBehaviour {
     private Vector3 prevPosition;
     private float relativeMaxDashDistance;
     private bool lockMovements;
-	private bool breakDash;
+    private bool breakDash;
 
     void Start() {
 
         rgbd = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        AudioSource[] sources = GetComponents<AudioSource>();
+        if (sources[0].clip.name == "hero-walk") {
+            walkAudioSource = sources[0];
+            dashAudioSource = sources[1];
+        } else {
+            walkAudioSource = sources[1];
+            dashAudioSource = sources[0];
+        }
         isDashing = false;
         dashDistance = 0;
-		lockMovements = false;
-		breakDash = false;
+        lockMovements = false;
+        breakDash = false;
         lastWalkingAnimationState = 1;
     }
 
@@ -65,17 +75,20 @@ public class PlayerController : MonoBehaviour {
                 animator.SetInteger("walking", lastWalkingAnimationState);
             }
             spriteRenderer.flipX = horizontal < 0;
+            if (!walkAudioSource.isPlaying)
+                walkAudioSource.Play();
         } else {
+            walkAudioSource.Stop();
             animator.SetInteger("walking", 0);
         }
     }
 
     private void Dash() {
 
-		bool dash = false;
-		if(!lockMovements)
-        	dash = Input.GetMouseButtonDown(1);
-		
+        bool dash = false;
+        if (!lockMovements)
+            dash = Input.GetMouseButtonDown(1);
+
         if (dash) {
             Vector3 mouseToPlayerDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             mouseToPlayerDirection.z = 0;
@@ -86,17 +99,21 @@ public class PlayerController : MonoBehaviour {
             relativeMaxDashDistance = Mathf.Min(maxDashDistance, mouseToPlayerDirection.magnitude);
             lockMovements = true;
 
-			//Dash animation
-			if (mouseToPlayerDirection.y > 0) {
-				animator.SetTrigger ("dashRightTop");
-			} else if (mouseToPlayerDirection.y < 0) {
-				animator.SetTrigger ("dashLeftBottom");
-			}
-			spriteRenderer.flipX = mouseToPlayerDirection.x < 0;
+            //Dash animation
+            if (mouseToPlayerDirection.y > 0) {
+                animator.SetTrigger("dashRightTop");
+            } else if (mouseToPlayerDirection.y < 0) {
+                animator.SetTrigger("dashLeftBottom");
+            }
+            spriteRenderer.flipX = mouseToPlayerDirection.x < 0;
+
+            //Dash sound
+            walkAudioSource.Stop();
+            dashAudioSource.Play();
         }
 
         if (isDashing) {
-			if (dashDistance < relativeMaxDashDistance && !breakDash) {
+            if (dashDistance < relativeMaxDashDistance && !breakDash) {
                 Vector3 diff = transform.position - prevPosition;
                 diff.z = 0;
                 dashDistance += diff.magnitude;
@@ -106,14 +123,13 @@ public class PlayerController : MonoBehaviour {
                 isDashing = false;
                 dashDistance = 0;
                 lockMovements = false;
-				breakDash = false;
+                breakDash = false;
             }
         }
     }
 
-	void OnCollisionStay2D(Collision2D other)
-	{
-		if (isDashing)
-			breakDash = true;
-	}
+    void OnCollisionStay2D(Collision2D other) {
+        if (isDashing)
+            breakDash = true;
+    }
 }

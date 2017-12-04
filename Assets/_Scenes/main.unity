@@ -660,6 +660,12 @@ Prefab:
       propertyPath: powerUp
       value: 199
       objectReference: {fileID: 0}
+    - target: {fileID: 114412993584814266, guid: 8cc612abc94c98f489dda7015fcdd5da,
+        type: 2}
+      propertyPath: vBubble.vMessage
+      value: The day has come. You are the only one that can handle it. Just take
+        my strength...*Press Q to take*
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cc612abc94c98f489dda7015fcdd5da, type: 2}
   m_IsPrefabParent: 0
@@ -5985,7 +5991,7 @@ MonoBehaviour:
   vCurrentBubble: {fileID: 0}
   IsTalking: 0
   vBubble:
-    vMessage: I don't want to die!
+    vMessage: Please don't...I don't want to die!
     vMessageForm: 0
     vBorderColor: {r: 0, g: 0, b: 0, a: 1}
     vBodyColor: {r: 1, g: 1, b: 1, a: 1}
@@ -7573,7 +7579,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c1bf5913948daae40b4d4e4d1e49f6b8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7948,7 +7954,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b188b03a5291d404c922c1d74d18e392, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0

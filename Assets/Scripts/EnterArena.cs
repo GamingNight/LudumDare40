@@ -8,6 +8,7 @@ public class EnterArena : MonoBehaviour {
 	public GameObject invisibleWall;
     public GameObject bossUI;
     public GameObject boss;
+    public GameObject gameManager;
 
 	void OnTriggerEnter2D(Collider2D other){
 
@@ -16,11 +17,18 @@ public class EnterArena : MonoBehaviour {
 			myCamera.GetComponent<CameraBoss>().enabled = true;
 			invisibleWall.SetActive (true);
             bossUI.SetActive(true);
+
             foreach (AudioSource src in boss.GetComponents<AudioSource>()) {
                 if(src.clip.name == "monster-apparition") {
                     src.Play();
                 }
             }
+            foreach (AudioSource src in gameManager.GetComponents<AudioSource>()) {
+                if (src.clip.name == "battle1") {
+                    src.Play();
+                }
+            }
+
             Destroy(gameObject);
 		}
 	}

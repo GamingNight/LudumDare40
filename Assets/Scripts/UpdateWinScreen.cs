@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class UpdateWinScreen : MonoBehaviour {
 
+    public Text sacrificiedText;
+    public GameObject proverbGO;
+
     void Start() {
         if (GameManager.killedInhabitants > 0) {
-            GetComponent<Text>().text = "but also sacrificed " + GameManager.killedInhabitants + " of your people";
+            sacrificiedText.text = "but also sacrificed " + GameManager.killedInhabitants + " of your people.";
+            proverbGO.SetActive(true);
         } else {
-            GetComponent<Text>().text = "without sacrificing anyone";
+            sacrificiedText.text = "without sacrificing anyone. Congratulations!";
+            proverbGO.SetActive(false);
         }
     }
 }
